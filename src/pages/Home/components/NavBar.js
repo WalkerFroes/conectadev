@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         padding: theme.spacing(2),
         width: 275,
+        marginRight: theme.spacing(2)
     },
     button: {
         width: '100%',
@@ -17,29 +18,31 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const tags = [
-    {id: 1, name: 'reactjs' },
-    {id: 2, name: 'javascript' },
-    {id: 3, name: 'dotnet' },
-    {id: 4, name: 'php' },
-    {id: 5, name: 'materialdesign' },
-    {id: 6, name: 'webdev' },
-    {id: 7, name: 'webdev 2' }
-]
+    { id: 1, name: 'reactjs' },
+    { id: 2, name: 'javascript' },
+    { id: 3, name: 'dotnet' },
+    { id: 4, name: 'php' },
+    { id: 5, name: 'materialdesign' },
+    { id: 6, name: 'webdev' },
+];
 
 function NavBar() {
     const classes = useStyles();
 
     return(
         <Paper className={classes.root}>
-            <Button variant="outlined" color="secondary"className={classes.button}>Registrar grati</Button>
+            <Button variant="outlined" color="secondary" className={classes.button}>Registrar gratis</Button>
             <ListSubheader>{'Tags em alta'}</ListSubheader>
             {
                 tags.map((item) => (
                     <ListItem dense button key={`item-${item.id}-${item.name}`}>
-                        <ListItemText primery={`#${item.name}`} />
+                        <ListItemText primery={`#${item.name}`} /> 
                     </ListItem>
                 ))  
             }
+            <ListItem button>
+                Exibir mais Tags
+            </ListItem>
         </Paper>
 
     )
